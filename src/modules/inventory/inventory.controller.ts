@@ -1,7 +1,15 @@
 import { Controller } from '@nestjs/common';
 import { InventoryService } from './inventory.service';
+import { EventPattern, Payload } from '@nestjs/microservices';
+import { AddProductDto } from './dto/add-product.dto';
 
-@Controller('inventory')
+@Controller()
 export class InventoryController {
-  constructor(private readonly inventoryService: InventoryService) {}
+  constructor(private readonly inventoryService: InventoryService) { }
+
+  @EventPattern("add-product-to-inventory")
+  addProduct(@Payload() addProductDto: AddProductDto) {
+    return this.inventoryService.addProduct(addProductDto);
+  }
+
 }
