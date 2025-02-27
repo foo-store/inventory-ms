@@ -4,4 +4,4 @@ import { InventoryModule } from './modules/inventory/inventory.module';
 @Module({
   imports: [InventoryModule],
 })
-export class AppModule { }
+export class AppModule {}

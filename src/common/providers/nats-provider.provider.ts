@@ -1,7 +1,7 @@
-import { Provider } from "@nestjs/common";
-import { NATS_SERVICE } from "../constants";
+import { Provider } from '@nestjs/common';
+import { NATS_SERVICE } from '../constants';
 import { ClientOptions, Transport } from '@nestjs/microservices';
-import { envs } from "src/config/envs.config";
+import { envs } from 'src/config/envs.config';
 
 export const natsProvider: Provider = {
   provide: NATS_SERVICE,
@@ -10,7 +10,7 @@ export const natsProvider: Provider = {
       transport: Transport.NATS,
       options: {
         servers: [envs.natsUrl],
-      }
-    }
-  }
-}
+      },
+    };
+  },
+};

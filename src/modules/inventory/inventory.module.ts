@@ -7,4 +7,4 @@ import { InventoryService } from './inventory.service';
   controllers: [InventoryController],
   providers: [InventoryService, natsProvider],
 })
-export class InventoryModule { }
+export class InventoryModule {}

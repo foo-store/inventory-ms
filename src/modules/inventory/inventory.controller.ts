@@ -5,11 +5,10 @@ import { AddProductDto } from './dto/add-product.dto';
 
 @Controller()
 export class InventoryController {
-  constructor(private readonly inventoryService: InventoryService) { }
+  constructor(private readonly inventoryService: InventoryService) {}
 
-  @EventPattern("product.created")
+  @EventPattern('product.created')
   addProduct(@Payload() addProductDto: AddProductDto) {
     return this.inventoryService.addProduct(addProductDto);
   }
-
 }

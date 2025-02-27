@@ -6,23 +6,19 @@ import { AddProductDto } from './dto/add-product.dto';
 
 @Injectable()
 export class InventoryService extends PrismaClient implements OnModuleInit {
-
-  private logger = new Logger("InventoryService");
+  private logger = new Logger('InventoryService');
 
   onModuleInit() {
     this.$connect();
-    this.logger.log("Connected to the database");
+    this.logger.log('Connected to the database');
   }
 
-  constructor(
-    @Inject(NATS_SERVICE) private readonly clientProxy: ClientProxy
-  ) {
+  constructor(@Inject(NATS_SERVICE) private readonly clientProxy: ClientProxy) {
     super();
   }
 
   async addProduct(addProductDto: AddProductDto) {
     await this.inventory.create({ data: addProductDto });
-    console.log("Product added to inventory", addProductDto);
+    console.log('Product added to inventory', addProductDto);
   }
-
 }
